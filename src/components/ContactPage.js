@@ -137,7 +137,7 @@ const ContactPage = () => {
               </Typography>
               
               <Typography variant="body1" gutterBottom sx={{ fontWeight: 'medium', mb: 2 }}>
-                D-015 Ground Floor Puri-81 High Street Sector 81 Faridabad, India 121002
+                C-19, Bhagat Singh Colony, Ballabgarh, Faridabad - 121004, India
               </Typography>
               <Typography variant="body1" gutterBottom sx={{ fontWeight: 'medium', mb: 3 }}>
                 Haryana
@@ -148,14 +148,14 @@ const ContactPage = () => {
               </Typography>
               
               <Typography variant="body1" gutterBottom sx={{ fontWeight: 'medium', mb: 2 }}>
-                +91-92-20-16-14-14
+                +91-88-82-43-34-07
               </Typography>
               <Typography variant="body2" gutterBottom sx={{ color: '#666', mb: 3 }}>
                 Need live support?
               </Typography>
               
               <Typography variant="body1" gutterBottom sx={{ fontWeight: 'medium', mb: 2 }}>
-                info@vistamytrip.com
+                info@incrediblepathways.com
               </Typography>
               <Typography variant="body2" gutterBottom sx={{ color: '#666', mb: 3 }}>
                 Follow us on social media

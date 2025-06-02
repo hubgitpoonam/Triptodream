@@ -9,11 +9,13 @@ import HolidaysByInterest from './components/HolidaysByInterest';
 import Footer from './components/Footer';
 import ContactPage from './components/ContactPage';
 import AboutPage from './components/AboutPage';
+import BlogPage from './components/blog/BlogPage';
+import BlogDetail from './components/blog/BlogDetail';
 
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#b8860b', // Dark Goldenrod
+      main: '#730664', // Deep Purple
     },
     secondary: {
       main: '#333333',
@@ -61,6 +63,8 @@ function App() {
             } />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/about-us" element={<AboutPage />} />
+            <Route path="/blog" element={<BlogPage />} />
+            <Route path="/blog/:id" element={<BlogDetail />} />
             {/* Add more routes as needed */}
           </Routes>
           <Footer />

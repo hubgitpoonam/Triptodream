@@ -78,11 +78,12 @@ const Footer = () => {
               Contact Us
             </Typography>
             <Typography variant="body2" color="textSecondary" paragraph>
-              D-015 Ground Floor Puri-81 High Street Sector 81
-              Faridabad, India 121002 Haryana +91-92-20-16-14-14
+              C-19, Bhagat Singh Colony, Ballabgarh, Faridabad - 121004, India
+              <br/>
+              Phone: +91-8882433407
             </Typography>
             <Typography variant="body2" color="textSecondary" paragraph>
-              info@vistamytrip.com
+              info@incrediblepathways.com
             </Typography>
             <Box sx={{ mt: 2 }}>
               <SocialIcon href="https://instagram.com" target="_blank">
@@ -97,7 +98,7 @@ const Footer = () => {
               <SocialIcon href="https://youtube.com" target="_blank">
                 <YouTubeIcon />
               </SocialIcon>
-              <SocialIcon href="https://wa.me/919220161414" target="_blank">
+              <SocialIcon href="https://wa.me/918882433407 " target="_blank">
                 <WhatsAppIcon />
               </SocialIcon>
             </Box>
