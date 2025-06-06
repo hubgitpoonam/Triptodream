@@ -103,9 +103,9 @@ const BlogDetail = () => {
               position: 'sticky',
               top: '20px'
             }}>
-              <img 
-                src={currentBlogPost.image_url} 
-                alt={currentBlogPost.title} 
+            <img 
+              src={currentBlogPost.image_url} 
+              alt={currentBlogPost.title} 
                 style={{
                   width: '100%',
                   height: 'auto',
@@ -114,13 +114,13 @@ const BlogDetail = () => {
                   objectPosition: 'center',
                   borderRadius: '8px'
                 }}
-              />
-            </div>
-            
+            />
+          </div>
+
             {/* Right side - Description */}
             <div className="content-container">
-              <div className="prose max-w-none">
-                {formatDescription(currentBlogPost.description)}
+          <div className="prose max-w-none">
+            {formatDescription(currentBlogPost.description)}
               </div>
             </div>
           </div>

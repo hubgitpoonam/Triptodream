@@ -52,7 +52,7 @@ const fallbackDestinations = [
     id: 4,
     name: 'Kerala',
     packages: 10,
-    image: '/Images/kerela.jpg',
+    image: '/Images/Kerala.jpg',
     link: '/destinations/kerala',
   },
   {

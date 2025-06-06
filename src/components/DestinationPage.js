@@ -22,7 +22,9 @@ import {
   Button,
   FormControlLabel,
   Checkbox,
-  Link
+  Link,
+  ImageList,
+  ImageListItem
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -103,6 +105,7 @@ const DestinationPage = () => {
   const [destination, setDestination] = useState(null);
   const [packages, setPackages] = useState([]);
   const [termsAccepted, setTermsAccepted] = useState(false);
+  const [destinationImages, setDestinationImages] = useState([]);
 
   useEffect(() => {
     const fetchDestinationData = async () => {
@@ -152,6 +155,20 @@ const DestinationPage = () => {
           
           setDestination(name);
           setPackages(processedPackages);
+          
+          // Set destination images based on the destination name
+          const destinationImagesMap = {
+            'kashmir': ['/Images/kashmir2.jpg', '/Images/kashmir3.jpg'],
+            'ladakh': ['/Images/ladhak2.jpg', '/Images/ladhak3.jpg'],
+            'rajasthan': ['/Images/Rajsthan1.jpg', '/Images/rajashthan2.jpg', '/Images/Rajashthan3.jpg'],
+            'jibhi': ['/Images/JIBHI1.jpg', '/Images/jibhi2.jpg', '/Images/jibhi3.jpg'],
+            'himachal': ['/Images/himacha1.jpg', '/Images/himachal2.jpg', '/Images/himachal3.jpg'],
+            'himachal-pradesh': ['/Images/himacha1.jpg', '/Images/himachal2.jpg', '/Images/himachal3.jpg']
+          };
+          
+          // Normalize the destination name to match our keys
+          const normalizedName = name.toLowerCase().replace('-jibhi', '');
+          setDestinationImages(destinationImagesMap[normalizedName] || []);
         } else {
           setError(`No packages found for ${name}`);
         }
@@ -233,6 +250,39 @@ const DestinationPage = () => {
               <Typography variant="body1" paragraph>
                 {featuredPackage.description}
               </Typography>
+              
+              {/* Destination Image Gallery */}
+              {destinationImages.length > 0 && (
+                <Box sx={{ mt: 4 }}>
+                  <Typography variant="h5" component="h3" gutterBottom sx={{ color: 'primary.main', mb: 2 }}>
+                    {destination} Gallery
+                  </Typography>
+                  <ImageList 
+                    sx={{ 
+                      overflow: 'hidden',
+                      borderRadius: '8px',
+                    }} 
+                    cols={destinationImages.length > 1 ? 2 : 1} 
+                    gap={16}
+                  >
+                    {destinationImages.map((img, index) => (
+                      <ImageListItem key={index}>
+                        <img
+                          src={img}
+                          alt={`${destination} view ${index + 1}`}
+                          loading="lazy"
+                          style={{ 
+                            height: '200px',
+                            objectFit: 'cover',
+                            borderRadius: '8px',
+                            boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+                          }}
+                        />
+                      </ImageListItem>
+                    ))}
+                  </ImageList>
+                </Box>
+              )}
             </StyledPaper>
 
             <Typography variant="h4" component="h2" gutterBottom sx={{ mt: 6, mb: 3, color: 'primary.main' }}>
