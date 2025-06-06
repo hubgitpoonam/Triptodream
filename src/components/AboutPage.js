@@ -39,11 +39,11 @@ const AboutPage = () => {
       <ContentSection>
         <Container>
           <Typography variant="h4" component="h2" fontWeight="bold" sx={{ mb: 3 }}>
-            About Dream To Trip Pvt Ltd
+            About IncrediblePathways
           </Typography>
           
           <Typography variant="body1" paragraph>
-           Dream To Trip Pvt Ltd is an online travel portal offering convenient booking services for holiday packages. Based in Faridabad, the company provides customized travel solutions for both inbound and outbound travelers. Their offerings include honeymoon packages, international and domestic tours, and adventure trips. They emphasize customer satisfaction by tailoring experiences to individual preferences.
+           IncrediblePathways is an online travel portal offering convenient booking services for holiday packages. Based in Faridabad, the company provides customized travel solutions for both inbound and outbound travelers. Their offerings include honeymoon packages, international and domestic tours, and adventure trips. They emphasize customer satisfaction by tailoring experiences to individual preferences.
           </Typography>
           
           <Typography variant="h5" fontWeight="bold" sx={{ mt: 4, mb: 2 }}>
