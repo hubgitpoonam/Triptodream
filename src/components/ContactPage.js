@@ -265,54 +265,6 @@ const ContactPage = () => {
         </Container>
       </ContactSection>
       
-      <Box sx={{ bgcolor: '#0a1929', color: 'white', py: 4 }}>
-        <Container>
-          <Grid container alignItems="center" spacing={2}>
-            <Grid item xs={12} md={7}>
-              <Box display="flex" alignItems="center">
-                <Box component="img" src="/Images/email-icon.png" alt="" width={50} height={50} sx={{ mr: 2 }} />
-                <Box>
-                  <Typography variant="h5" fontWeight="bold">
-                    Your Travel Journey Starts Here
-                  </Typography>
-                  <Typography variant="body2">
-                    Sign up and we'll send the best deals to you
-                  </Typography>
-                </Box>
-              </Box>
-            </Grid>
-            <Grid item xs={12} md={5}>
-              <Box display="flex">
-                <TextField
-                  fullWidth
-                  placeholder="Your Email"
-                  variant="outlined"
-                  sx={{ 
-                    bgcolor: 'white',
-                    borderRadius: '4px 0 0 4px',
-                    '& .MuiOutlinedInput-notchedOutline': {
-                      borderRight: 0,
-                    }
-                  }}
-                />
-                <Button
-                  variant="contained"
-                  sx={{ 
-                    bgcolor: '#b8860b',
-                    borderRadius: '0 4px 4px 0',
-                    '&:hover': {
-                      bgcolor: '#9e7609',
-                    }
-                  }}
-                >
-                  Subscribe
-                </Button>
-              </Box>
-            </Grid>
-          </Grid>
-        </Container>
-      </Box>
-      
       <Snackbar
         open={snackbarOpen}
         autoHideDuration={5000}

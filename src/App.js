@@ -11,6 +11,11 @@ import ContactPage from './components/ContactPage';
 import AboutPage from './components/AboutPage';
 import BlogPage from './components/blog/BlogPage';
 import BlogDetail from './components/blog/BlogDetail';
+import DestinationPage from './components/DestinationPage';
+import WeekendGetawaysPage from './components/WeekendGetawaysPage';
+import PrivacyPolicyPage from './components/PrivacyPolicyPage';
+import TermsAndConditionsPage from './components/TermsAndConditionsPage';
+import CancellationPage from './components/CancellationPage';
 
 const theme = createTheme({
   palette: {
@@ -65,6 +70,11 @@ function App() {
             <Route path="/about-us" element={<AboutPage />} />
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/blog/:id" element={<BlogDetail />} />
+            <Route path="/destinations/:name" element={<DestinationPage />} />
+            <Route path="/weekend-getaways" element={<WeekendGetawaysPage />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+            <Route path="/terms" element={<TermsAndConditionsPage />} />
+            <Route path="/cancellation" element={<CancellationPage />} />
             {/* Add more routes as needed */}
           </Routes>
           <Footer />

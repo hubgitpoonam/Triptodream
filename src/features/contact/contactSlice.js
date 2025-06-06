@@ -1,43 +1,52 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
 
 // Use the correct environment variable name as defined in .env
-const API_URL = process.env.REACT_API_URL;
-console.log('Using API URL:', API_URL);
+const API_URL = process.env.REACT_APP_API_URL;
+console.log("Using API URL:", API_URL);
 
 // Async thunk for submitting contact form
 export const submitContactForm = createAsyncThunk(
-  'contact/submitContactForm',
+  "contact/submitContactForm",
   async (contactData, { rejectWithValue }) => {
     try {
-      // Log the full API endpoint for debugging
-      const endpoint = API_URL ? `${API_URL}api/contacts/` : 'http://localhost:8000/api/contacts/';
-      console.log('Submitting contact to:', endpoint);
-      console.log('Contact data:', contactData);
-      
+      // Safely construct the endpoint URL
+      if (!API_URL) {
+        throw new Error('API URL is not configured. Please check environment variables.');
+      }
+
+      // Ensure API_URL ends with a slash before appending the path
+      const baseUrl = API_URL.endsWith('/') ? API_URL : `${API_URL}/`;
+      const endpoint = `${baseUrl}api/contacts/`;
+
+      console.log("Submitting contact to:", endpoint);
+      console.log("Contact data:", contactData);
+
       // Make the direct post request with the full URL
       const response = await axios.post(endpoint, contactData, {
         headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        }
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
       });
-      
-      console.log('Response:', response.data);
+
+      console.log("Response:", response.data);
       return response.data;
     } catch (error) {
-      console.error('Error submitting contact form:', error);
+      console.error("Error submitting contact form:", error);
       if (error.response) {
-        console.error('Error response data:', error.response.data);
-        console.error('Error response status:', error.response.status);
-        console.error('Error response headers:', error.response.headers);
+        console.error("Error response data:", error.response.data);
+        console.error("Error response status:", error.response.status);
+        console.error("Error response headers:", error.response.headers);
       } else if (error.request) {
-        console.error('Error request:', error.request);
+        console.error("Error request:", error.request);
       } else {
-        console.error('Error message:', error.message);
+        console.error("Error message:", error.message);
       }
       return rejectWithValue(
-        error.response?.data || { message: `Failed to submit contact form: ${error.message}` }
+        error.response?.data || {
+          message: `Failed to submit contact form: ${error.message}`,
+        }
       );
     }
   }
@@ -51,7 +60,7 @@ const initialState = {
 };
 
 const contactSlice = createSlice({
-  name: 'contact',
+  name: "contact",
   initialState,
   reducers: {
     resetContactForm: (state) => {
@@ -75,7 +84,7 @@ const contactSlice = createSlice({
       })
       .addCase(submitContactForm.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.payload || { message: 'Something went wrong' };
+        state.error = action.payload || { message: "Something went wrong" };
       });
   },
 });
@@ -84,4 +93,4 @@ export const { resetContactForm } = contactSlice.actions;
 
 export const selectContactState = (state) => state.contact;
 
-export default contactSlice.reducer; 
+export default contactSlice.reducer;

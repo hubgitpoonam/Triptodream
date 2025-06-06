@@ -17,6 +17,16 @@
   .blog-grid {
     grid-template-columns: 1fr;
   }
+  
+  /* Make the blog detail layout stack on mobile */
+  .blog-content-container {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .image-container {
+    position: static !important;
+    margin-bottom: 20px !important;
+  }
 }
 
 /* Blog Card Container */
@@ -109,4 +119,30 @@
   font-style: italic;
   margin: 1.5rem 0;
   color: #4a4a4a;
+}
+
+/* Blog Detail Side-by-Side Layout */
+.blog-content-container {
+  display: grid;
+  gap: 24px;
+}
+
+.image-container {
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.image-container img:hover {
+  transform: scale(1.03);
 }

@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 // Use the correct environment variable name as defined in .env
-const API_URL = process.env.REACT_API_URL;
+const API_URL = process.env.REACT_APP_API_URL;
 console.log('Using API URL for itinerary:', API_URL);
 
 // Async thunk for submitting itinerary form
@@ -10,8 +10,15 @@ export const submitItineraryForm = createAsyncThunk(
   'itinerary/submitItineraryForm',
   async (itineraryData, { rejectWithValue }) => {
     try {
-      // Log the full API endpoint for debugging
-      const endpoint = API_URL ? `${API_URL}api/itineraries/` : 'http://localhost:8000/api/itineraries/';
+      // Safely construct the endpoint URL
+      if (!API_URL) {
+        throw new Error('API URL is not configured. Please check environment variables.');
+      }
+
+      // Ensure API_URL ends with a slash before appending the path
+      const baseUrl = API_URL.endsWith('/') ? API_URL : `${API_URL}/`;
+      const endpoint = `${baseUrl}api/itineraries/`;
+      
       console.log('Submitting itinerary to:', endpoint);
       console.log('Itinerary data:', itineraryData);
       

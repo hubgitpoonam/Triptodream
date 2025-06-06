@@ -57,9 +57,9 @@ const HeroSlider = () => {
 
   const slides = [
     {
-      image: '/Images/kerela.jpg',
-      title: 'Kerala',
-      subtitle: 'Sail through serene backwaters in God\'s Own Country',
+      image: '/Images/ladhak_home.jpg',
+      title: 'Ladakh',
+      subtitle: 'Ladakh – where the roads are wild and the vibes are higher than Khardung La',
     },
     {
       image: '/Images/kashmir.jpg',

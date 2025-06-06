@@ -41,31 +41,26 @@ const categories = [
     id: 1,
     name: 'Family Package',
     image: '/Images/familypackage.jpg',
-    link: '/packages/family',
   },
   {
     id: 2,
     name: 'Honeymoon Package',
     image: '/Images/honeymoon-packages.jpg',
-    link: '/packages/honeymoon',
   },
   {
     id: 3,
     name: 'Adventure Package',
     image: '/Images/adventure.jpg',
-    link: '/packages/adventure',
   },
   {
     id: 4,
     name: 'Beaches',
     image: '/Images/beach.jpg',
-    link: '/packages/beaches',
   },
   {
     id: 5,
     name: 'Hill Stations',
     image: '/Images/hill-station-packages.jpg',
-    link: '/packages/hill-stations',
   },
 ];
 
@@ -88,7 +83,7 @@ const HolidaysByInterest = () => {
         <Grid container spacing={3}>
           {categories.map((category) => (
             <Grid item xs={12} sm={6} md={4} key={category.id}>
-              <Link to={category.link} style={{ textDecoration: 'none' }}>
+              <Link to="/weekend-getaways" style={{ textDecoration: 'none' }}>
                 <InterestCard>
                   <CardImage src={category.image} alt={category.name} />
                   <CardOverlay>

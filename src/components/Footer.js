@@ -4,8 +4,6 @@ import { styled } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import YouTubeIcon from '@mui/icons-material/YouTube';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
 const FooterContainer = styled(Box)({
@@ -22,6 +20,12 @@ const FooterLink = styled(Link)({
   '&:hover': {
     color: '#b8860b',
   },
+});
+
+const FooterText = styled(Typography)({
+  color: '#666',
+  display: 'block',
+  marginBottom: '8px',
 });
 
 const SocialIcon = styled(MuiLink)({
@@ -42,7 +46,6 @@ const Footer = () => {
               Company
             </Typography>
             <FooterLink to="/about-us">About Us</FooterLink>
-            <FooterLink to="/careers">Careers</FooterLink>
             <FooterLink to="/blog">Blog</FooterLink>
             <FooterLink to="/privacy-policy">Privacy Policy</FooterLink>
             <FooterLink to="/terms">Term and condition</FooterLink>
@@ -53,24 +56,24 @@ const Footer = () => {
             <Typography variant="h6" color="textPrimary" gutterBottom>
               Weekend Trips
             </Typography>
-            <FooterLink to="/weekend/chopta">Chopta Tungnath</FooterLink>
-            <FooterLink to="/weekend/manali">Manali Sissu</FooterLink>
-            <FooterLink to="/weekend/mcleodganj">Mcleodganj Tour Package</FooterLink>
-            <FooterLink to="/weekend/kanatal">Kanatal Tour Package</FooterLink>
-            <FooterLink to="/weekend/kasol">Kasol Kheerganga Tour Package</FooterLink>
-            <FooterLink to="/weekend/jibhi">Jibhi Tour Package</FooterLink>
+            <FooterText variant="body2">Chopta Tungnath</FooterText>
+            <FooterText variant="body2">Manali Sissu</FooterText>
+            <FooterText variant="body2">Mcleodganj Tour Package</FooterText>
+            <FooterText variant="body2">Kanatal Tour Package</FooterText>
+            <FooterText variant="body2">Kasol Kheerganga Tour Package</FooterText>
+            <FooterText variant="body2">Jibhi Tour Package</FooterText>
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
             <Typography variant="h6" color="textPrimary" gutterBottom>
               Domestic
             </Typography>
-            <FooterLink to="/domestic/himachal">Himachal</FooterLink>
-            <FooterLink to="/domestic/kashmir">Kashmir</FooterLink>
-            <FooterLink to="/domestic/kerala">Kerala</FooterLink>
-            <FooterLink to="/domestic/rajasthan">Rajasthan</FooterLink>
-            <FooterLink to="/domestic/uttarakhand">Uttarakhand</FooterLink>
-            <FooterLink to="/domestic/goa">Goa</FooterLink>
+            <FooterText variant="body2">Himachal</FooterText>
+            <FooterText variant="body2">Kashmir</FooterText>
+            <FooterText variant="body2">Kerala</FooterText>
+            <FooterText variant="body2">Rajasthan</FooterText>
+            <FooterText variant="body2">Uttarakhand</FooterText>
+            <FooterText variant="body2">Goa</FooterText>
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
@@ -92,12 +95,6 @@ const Footer = () => {
               <SocialIcon href="https://facebook.com" target="_blank">
                 <FacebookIcon />
               </SocialIcon>
-              <SocialIcon href="https://twitter.com" target="_blank">
-                <TwitterIcon />
-              </SocialIcon>
-              <SocialIcon href="https://youtube.com" target="_blank">
-                <YouTubeIcon />
-              </SocialIcon>
               <SocialIcon href="https://wa.me/918882433407 " target="_blank">
                 <WhatsAppIcon />
               </SocialIcon>
@@ -107,7 +104,7 @@ const Footer = () => {
 
         <Box sx={{ mt: 8, pt: 4, borderTop: '1px solid #ddd' }}>
           <Typography variant="body2" color="textSecondary" align="center">
-            © {new Date().getFullYear()} Dream To Trip Pvt Ltd All rights reserved.
+            © {new Date().getFullYear()} IncrediblePathways All rights reserved.
             <MuiLink component={Link} to="/privacy" color="inherit" sx={{ mx: 1 }}>
               Privacy
             </MuiLink>
