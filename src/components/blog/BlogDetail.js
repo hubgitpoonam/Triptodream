@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, Link } from 'react-router-dom';
 import { fetchBlogPost, clearCurrentBlogPost } from '../../features/blog/blogSlice';
@@ -8,12 +8,19 @@ const BlogDetail = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const { currentBlogPost, status, error } = useSelector((state) => state.blog);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   useEffect(() => {
     dispatch(fetchBlogPost(id));
 
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener('resize', handleResize);
     return () => {
       dispatch(clearCurrentBlogPost());
+      window.removeEventListener('resize', handleResize);
     };
   }, [dispatch, id]);
 
@@ -63,18 +70,8 @@ const BlogDetail = () => {
     );
   };
 
-  const imageContainerStyle = {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: '20px',
-    backgroundColor: '#f5f5f5',
-    borderRadius: '8px'
-  };
-
   return (
-    <div className="container mx-auto py-10 px-4 max-w-4xl">
-    
+    <div className="container mx-auto py-10 px-4 max-w-4xl blog-detail-container">
       <div className="bg-white rounded-lg shadow-lg overflow-hidden">
         <div className="p-6">
           <h1 className="text-3xl font-bold mb-3" style={{ color: '#730664' }}>{currentBlogPost.title}</h1>
@@ -86,18 +83,47 @@ const BlogDetail = () => {
             })}
           </div>
           
-          <div style={imageContainerStyle} className="mb-8 blog-image">
-            <img 
-              src={currentBlogPost.image_url} 
-              alt={currentBlogPost.title} 
-              style={{ width: '300px', height: '300px', objectFit: 'cover', objectPosition: 'center' }}
-            />
+          <div className="blog-content-container" style={{
+            display: 'grid',
+            gridTemplateColumns: isMobile ? '1fr' : '400px 1fr',
+            gap: '24px',
+            marginBottom: '32px',
+            alignItems: 'start'
+          }}>
+            {/* Left side - Image (always at top) */}
+            <div className="image-container" style={{
+              backgroundColor: '#f5f5f5',
+              borderRadius: '8px',
+              padding: '20px',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              alignSelf: 'start',
+              marginBottom: isMobile ? '20px' : '0',
+              position: 'sticky',
+              top: '20px'
+            }}>
+              <img 
+                src={currentBlogPost.image_url} 
+                alt={currentBlogPost.title} 
+                style={{
+                  width: '100%',
+                  height: 'auto',
+                  maxHeight: '600px',
+                  objectFit: 'cover',
+                  objectPosition: 'center',
+                  borderRadius: '8px'
+                }}
+              />
+            </div>
+            
+            {/* Right side - Description */}
+            <div className="content-container">
+              <div className="prose max-w-none">
+                {formatDescription(currentBlogPost.description)}
+              </div>
+            </div>
           </div>
-
-          <div className="prose max-w-none">
-            {formatDescription(currentBlogPost.description)}
-          </div>
-        
         </div>
       </div>
     </div>

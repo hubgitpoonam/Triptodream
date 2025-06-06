@@ -86,7 +86,7 @@ const AboutPage = () => {
           </Typography>
           
           <Typography variant="h5" fontWeight="bold" sx={{ mt: 4, mb: 2 }}>
-            Why Choose Vistamytrip?
+            Why Choose IncrediblePathways?
           </Typography>
           <Typography variant="body1" paragraph>
             Expert Guidance: Backed by travel specialists with deep destination knowledge.
@@ -107,35 +107,6 @@ const AboutPage = () => {
           <Typography variant="body1" paragraph>
             To be your go-to travel partner, making the world more accessible — one trip at a time.
           </Typography>
-          
-          <Box sx={{ mt: 8 }}>
-            <Grid container spacing={4}>
-              <Grid item xs={6} md={3}>
-                <StatBox>
-                  <StatNumber variant="h3">4,958</StatNumber>
-                  <Typography variant="body1" color="text.secondary">Destinations</Typography>
-                </StatBox>
-              </Grid>
-              <Grid item xs={6} md={3}>
-                <StatBox>
-                  <StatNumber variant="h3">2,869</StatNumber>
-                  <Typography variant="body1" color="text.secondary">Total Properties</Typography>
-                </StatBox>
-              </Grid>
-              <Grid item xs={6} md={3}>
-                <StatBox>
-                  <StatNumber variant="h3">2M</StatNumber>
-                  <Typography variant="body1" color="text.secondary">Happy customers</Typography>
-                </StatBox>
-              </Grid>
-              <Grid item xs={6} md={3}>
-                <StatBox>
-                  <StatNumber variant="h3">574,974</StatNumber>
-                  <Typography variant="body1" color="text.secondary">Our Volunteers</Typography>
-                </StatBox>
-              </Grid>
-            </Grid>
-          </Box>
         </Container>
       </ContentSection>
     </>
